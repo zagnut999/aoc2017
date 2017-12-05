@@ -1,0 +1,13 @@
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\AdventOfCode.deps.json
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\AdventOfCode.runtimeconfig.json
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\AdventOfCode.runtimeconfig.dev.json
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\AdventOfCode.dll
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\AdventOfCode.pdb
+C:\Users\nate\Desktop\AdventOfCode\obj\Debug\netcoreapp2.0\AdventOfCode.csproj.CoreCompileInputs.cache
+C:\Users\nate\Desktop\AdventOfCode\obj\Debug\netcoreapp2.0\AdventOfCode.AssemblyInfoInputs.cache
+C:\Users\nate\Desktop\AdventOfCode\obj\Debug\netcoreapp2.0\AdventOfCode.AssemblyInfo.cs
+C:\Users\nate\Desktop\AdventOfCode\obj\Debug\netcoreapp2.0\AdventOfCode.dll
+C:\Users\nate\Desktop\AdventOfCode\obj\Debug\netcoreapp2.0\AdventOfCode.pdb
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\nate\Desktop\AdventOfCode\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
