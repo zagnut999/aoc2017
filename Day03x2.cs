@@ -155,7 +155,7 @@ namespace AdventOfCode
             var expected = 266330;
             var input = 265149;
 
-            var actual = SumNeighbors(input);
+            var actual = SumNeighbors(input, true);
 
             Assert.Equal(expected, actual);
         }
