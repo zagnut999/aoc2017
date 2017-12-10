@@ -56,7 +56,7 @@ How many blocks away is Easter Bunny HQ?
         [Fact]
         public void Third()
         {
-            var expected = 278;
+            var expected = 12;
             var input = new List<string> {"R5", "L5", "R5", "R3"};
 
             var actual = Distance(input);

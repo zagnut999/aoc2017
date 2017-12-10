@@ -130,7 +130,7 @@ Your goal is to find the total score for all groups in your input. Each group is
         [Fact]
         public void Eighth()
         {
-            var expected = 9;
+            var expected = 3;
             var input = "{{<a!>},{<a!>},{<a!>},{<ab>}}";
 
             var actual = Process(input);
@@ -141,7 +141,7 @@ Your goal is to find the total score for all groups in your input. Each group is
         [Fact]
         public void Ninth()
         {
-            var expected = 0;
+            var expected = 11;
             var input = "{{{<!>!>!<u,!>!!!!!!!>!!!>,<<!!\">},<!!!>,<!>,<}>},{{<>},<>}}";
 
             var actual = Process(input);
