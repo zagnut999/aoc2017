@@ -35,6 +35,7 @@ ne,ne,s,s is 2 steps away (se,se).
 se,sw,se,sw,sw is 3 steps away (s,s,sw). 
 
 https://www.redblobgames.com/grids/hexagons/
+used "even-q" coordinates
 */
         [Fact]
         public void First()
