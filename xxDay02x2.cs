@@ -5,7 +5,7 @@ using Xunit;
 
 namespace AdventOfCode
 {
-    public class xxDay02x1
+    public class xxDay02x2
     {
         /*
         --- Day 2: Bathroom Security ---
@@ -34,6 +34,29 @@ Finally, you move up four times (stopping at "2"), then down once, ending with 5
 So, in this example, the bathroom code is 1985.
 
 Your puzzle input is the instructions from the document you found at the front desk. What is the bathroom code?
+Your puzzle answer was 53255.
+
+The first half of this puzzle is complete! It provides one gold star: *
+
+--- Part Two ---
+
+You finally arrive at the bathroom (it's a several minute walk from the lobby so visitors can behold the many fancy conference rooms and water coolers on this floor) and go to punch in the code. Much to your bladder's dismay, the keypad is not at all like you imagined it. Instead, you are confronted with the result of hundreds of man-hours of bathroom-keypad-design meetings:
+
+    1
+  2 3 4
+5 6 7 8 9
+  A B C
+    D
+You still start at "5" and stop when you're at an edge, but given the same instructions as above, the outcome is very different:
+
+You start at "5" and don't move at all (up and left are both edges), ending at 5.
+Continuing from "5", you move right twice and down three times (through "6", "7", "B", "D", "D"), ending at D.
+Then, from "D", you move five more times (through "D", "B", "C", "C", "B"), ending at B.
+Finally, after five more moves, you end at 3.
+So, given the actual keypad layout, the code would be 5DB3.
+
+Using the same instructions in your puzzle input, what is the correct bathroom code?
+
  */
         [Fact]
         public void First()
@@ -73,7 +96,7 @@ Your puzzle input is the instructions from the document you found at the front d
         [Fact]
         public void Forth()
         {
-            var expected =  new Point(0,0);
+            var expected =  new Point(0,1);
             var start = new Point(0,-1);
             var input = "UUUUD";
 
@@ -85,7 +108,7 @@ Your puzzle input is the instructions from the document you found at the front d
         [Fact]
         public void Fifth()
         {
-            var expected = "1985";
+            var expected = "2CB3";
             var input = new List<string> {"ULL","RRDDD", "LURDL", "UUUUD"};
 
             var actual = FindPassword(input);
@@ -96,7 +119,7 @@ Your puzzle input is the instructions from the document you found at the front d
         [Fact]
         public void Actual()
         {
-            var expected = "53255";
+            var expected = "7423A";
             var input = new List<string>();
             using(var file = new System.IO.StreamReader(@"..\..\..\xxDay02.txt"))
             {  
@@ -112,17 +135,21 @@ Your puzzle input is the instructions from the document you found at the front d
 
             Assert.Equal(expected, actual);
         }
+
+        /*
+                1
+              2 3 4
+            5 6 7 8 9
+              A B C
+                D
+                */
         private Dictionary<Point, string> KeyPad = new Dictionary<Point, string>
         {
-            {new Point(-1,-1), "7"},
-            {new Point(0,-1), "8"},
-            {new Point(1,-1), "9"},
-            {new Point(-1,0), "4"},
-            {new Point(0,0), "5"},
-            {new Point(1,0), "6"},
-            {new Point(-1,1), "1"},
-            {new Point(0,1), "2"},
-            {new Point(1,1), "3"}
+            {new Point(0,2), "1"},
+            {new Point(-1,1), "2"},{new Point(0,1), "3"},{new Point(1,1), "4"},
+            {new Point(-2,0), "5"},{new Point(-1,0), "6"},{new Point(0,0), "7"}, {new Point(1,0), "8"},{new Point(2,0), "9"},
+            {new Point(-1,-1), "A"},{new Point(0,-1), "B"},{new Point(1,-1), "C"},
+            {new Point(0,-2), "D"},
         };
 
         private string FindPassword(List<string> inputs)
@@ -142,25 +169,51 @@ Your puzzle input is the instructions from the document you found at the front d
         {
             if (start == null)
                 start = new Point(0,0);
-            
-            int max= 1, min = -1;
-
+        
             foreach (var step in input)
             {
                 switch (step)
                 {
                     case 'U':
-                        if (start.Y < max) start.Y++;
+                    {
+                        var temp = start.Clone();
+                        temp.Y++;
+                        if (KeyPad.ContainsKey(temp))
+                        {
+                            start = temp;
+                        }
                         break;
+                    }
                     case 'D':
-                        if (start.Y > min) start.Y--;
+                    {
+                        var temp = start.Clone();
+                        temp.Y--;
+                        if (KeyPad.ContainsKey(temp))
+                        {
+                            start = temp;
+                        }
                         break;
+                    }
                     case 'L':
-                        if (start.X > min) start.X--;
+                    {
+                        var temp = start.Clone();
+                        temp.X--;
+                        if (KeyPad.ContainsKey(temp))
+                        {
+                            start = temp;
+                        }
                         break;
+                    }
                     case 'R':
-                        if (start.X < max) start.X++;
+                    {
+                        var temp = start.Clone();
+                        temp.X++;
+                        if (KeyPad.ContainsKey(temp))
+                        {
+                            start = temp;
+                        }
                         break;
+                    }
                     default:
                         throw new ArgumentException($"input is invalid ({input}, {step})");
                 }
