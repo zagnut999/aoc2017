@@ -6,19 +6,19 @@ using Xunit;
 namespace AdventOfCode
 {
 
-    public static class Program
-    {
-        public static int Main()
-        {
-            var day17x2 = new Day17x2();
+    // public static class Program
+    // {
+    //     public static int Main()
+    //     {
+    //         var day17x2 = new Day17x2();
             
-            var input = 348;
+    //         var input = 348;
 
-            var actual = day17x2.SpinLock(input);
-            Console.WriteLine(actual);
-            return 0;
-        }
-    }
+    //         var actual = day17x2.SpinLock(input);
+    //         Console.WriteLine(actual);
+    //         return 0;
+    //     }
+    // }
 
     public class Day17x2
     {
