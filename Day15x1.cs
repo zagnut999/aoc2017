@@ -55,12 +55,49 @@ Generator B starts with 190
         [Fact]
         public void First()
         {
-            var expected = 0;
-            //var input = 0;
+            var expected = 588;
+            var inputA = 65;
+            var inputB = 8921;
 
-            var actual = 0;
+            var actual = CountPairs(inputA, inputB);
 
             Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void Actual()
+        {
+            var expected = 597;
+            var inputA = 516;
+            var inputB = 190;
+
+            var actual = CountPairs(inputA, inputB);
+
+            Assert.Equal(expected, actual);
+        }
+
+        private int CountPairs(int inputA, int inputB)
+        {
+            long valueA, valueB;
+            int pairsCount;
+            pairsCount = 0;
+            var factorA = 16807;
+            var factorB = 48271;
+            var denominator = 2147483647;
+            var mask = (int)Math.Pow(2, 16) - 1;
+
+            valueA = inputA;
+            valueB =  inputB; 
+            for (var i = 0; i < 40000000; i ++)
+            {
+                valueA = (valueA * factorA) % denominator;
+                valueB = (valueB * factorB) % denominator;
+                var maskedA = valueA & mask;
+                var maskedB = valueB & mask;
+                if ( maskedA == maskedB )
+                    pairsCount++;
+            }
+
+            return pairsCount;
         }
     }
 }
